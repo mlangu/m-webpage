@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Sintaxe e Comandos — M Language</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #faf9f6;
+        }
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h1 { font-family: 'Courier Prime', monospace; font-size: 2em; text-transform: uppercase; margin: 0; }
+        .back-link { font-family: 'Courier Prime', monospace; font-size: 0.9em; text-decoration: none; color: #666; }
+        
+        .command-section {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 4px 4px 0px #ddd;
+        }
+        h2 { 
+            font-family: 'Courier Prime', monospace; 
+            margin-top: 0; 
+            font-size: 1.4em; 
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .desc { margin: 10px 0; color: #444; }
+        pre {
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #333;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        code { font-weight: bold; color: #000; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="documentation.html" class="back-link">← Voltar para Referência Técnica</a>
+    <h1>M Language: Guia de Comandos</h1>
+    <p>Referência rápida de sintaxe e uso para a versão 0.1</p>
+</header>
+
+<div class="grid">
+    <!-- VARIÁVEIS -->
+    <div class="command-section">
+        <h2>Variáveis</h2>
+        <p class="desc">Cria e armazena valores na memória. Não é necessário definir o tipo.</p>
+        <pre><code>nome = "João"
+idade = 25
+lista = []
+objeto = {}</code></pre>
+    </div>
+
+    <!-- ENTRADA E SAÍDA -->
+    <div class="command-section">
+        <h2>Entrada e Saída</h2>
+        <p class="desc">Interaja com o usuário através do terminal.</p>
+        <pre><code>// Saída automática
+"Olá Mundo"
+
+// Capturar entrada
+resposta = ask "Deseja sair?"</code></pre>
+    </div>
+
+    <!-- LISTAS -->
+    <div class="command-section">
+        <h2>Listas</h2>
+        <p class="desc">Coleções de dados indexadas começando em 0.</p>
+        <pre><code>frutas = ["Maçã", "Uva"]
+
+// Adicionar item
+add "Banana" to frutas
+
+// Obter tamanho
+total = size frutas
+
+// Acesso por índice
+item = frutas[0]</code></pre>
+    </div>
+
+    <!-- OBJETOS -->
+    <div class="command-section">
+        <h2>Objetos</h2>
+        <p class="desc">Estruturas chave-valor para organizar informações.</p>
+        <pre><code>carro = {
+    marca = "Ford"
+    ano = 2022
+}
+
+// Acesso por ponto
+"Marca: " + carro.marca</code></pre>
+    </div>
+
+    <!-- MATEMÁTICA -->
+    <div class="command-section">
+        <h2>Matemática</h2>
+        <p class="desc">Operações aritméticas com precedência padrão.</p>
+        <pre><code>soma = 10 + 5
+sub  = 20 - 3
+mult = 5 * 4
+div  = 100 / 2
+
+// Concatenação de texto
+msg = "Idade: " + 25</code></pre>
+    </div>
+
+    <!-- LÓGICA -->
+    <div class="command-section">
+        <h2>Lógica</h2>
+        <p class="desc">Comparações que retornam verdadeiro (1) ou falso (0).</p>
+        <pre><code>// Operadores
+==  (Igual)
+>   (Maior)
+<   (Menor)
+>=  (Maior ou igual)
+<=  (Menor ou igual)</code></pre>
+    </div>
+</div>
+
+<!-- FLUXO DE CONTROLE -->
+<div class="command-section">
+    <h2>Fluxo de Controle (Condicionais e Loops)</h2>
+    <p class="desc">Controle o caminho que o seu código deve seguir. Todo bloco termina com <code>end</code>.</p>
+    <div class="grid">
+        <div>
+            <h3>Condicional IF</h3>
+            <pre><code>if idade >= 18:
+    "Maior de idade"
+else:
+    "Menor de idade"
+end</code></pre>
+        </div>
+        <div>
+            <h3>Loops (Repeat e While)</h3>
+            <pre><code>// Repetição controlada
+count = 0
+while count < 5:
+    count = count + 1
+end
+
+// Repetição infinita
+repeat:
+    a = ask "Parar? (y/n)"
+    if a == "y":
+        stop
+    end
+end</code></pre>
+        </div>
+    </div>
+</div>
+
+<!-- FUNÇÕES -->
+<div class="command-section">
+    <h2>Funções</h2>
+    <p class="desc">Defina blocos de código para serem reutilizados.</p>
+    <pre><code>func saudar:
+    "Seja bem-vindo à M Language!"
+end
+
+// Chamar função
+saudar</code></pre>
+</div>
+
+<div class="footer" style="text-align: center; color: #888; font-size: 0.8em; margin-top: 50px;">
+    M Language v0.1
+</div>
+
+</body>
+</html>
